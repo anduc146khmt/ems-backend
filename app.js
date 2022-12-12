@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 5000;
+const dotenv = require('dotenv')
 var createError = require('http-errors');
 var express = require('express');
 const helmet = require('helmet');
@@ -11,6 +11,8 @@ var passport = require('./services/passportconf');
 var tool = require('./services/tool');
 var app = express();
 
+dotenv.config()
+const PORT = process.env.PORT || 5000;
 app.use(helmet());
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
